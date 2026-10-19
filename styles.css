@@ -239,7 +239,7 @@ code {
 
 /* --------------------------------------------------------------- hero ---- */
 
-.hero { padding-block: clamp(44px, 6vw, 80px) clamp(52px, 7vw, 92px); }
+.hero { padding-block: clamp(40px, 5vw, 72px) clamp(32px, 4vw, 56px); }
 
 .hero__in {
   display: grid;
@@ -370,7 +370,7 @@ code {
 
 /* -------------------------------------------------------- how it works ---- */
 
-.how { padding-block: clamp(52px, 7vw, 92px); }
+.how { padding-block: clamp(48px, 5.5vw, 76px); }
 
 .steps {
   list-style: none;
@@ -403,7 +403,7 @@ code {
 
 /* ----------------------------------------------------------- downloads ---- */
 
-.dl { padding-block: clamp(52px, 7vw, 92px); }
+.dl { padding-block: clamp(48px, 5.5vw, 76px); }
 
 .dl__meta {
   margin-top: 16px;
@@ -506,7 +506,7 @@ code {
 /* -------------------------------------------------------- first launch ---- */
 
 .fl {
-  padding-block: clamp(52px, 7vw, 92px);
+  padding-block: clamp(48px, 5.5vw, 76px);
   background: var(--bg-2);
   border-block: 1px solid var(--line);
 }
@@ -534,19 +534,22 @@ ol.plain {
   gap: 13px;
   max-width: 54ch;
 }
+/* hanging numeral: the list item stays a block so inline code and strong
+   inside a step keep flowing with the sentence */
 ol.plain > li {
   counter-increment: s;
-  display: grid;
-  grid-template-columns: 1.5rem 1fr;
-  gap: 12px;
+  position: relative;
+  padding-left: 1.9rem;
   color: var(--ink-2);
 }
 ol.plain > li::before {
   content: counter(s);
+  position: absolute;
+  left: 0;
+  top: 0.24em;
   font-family: var(--mono);
   font-size: 0.8125rem;
   color: var(--ink-3);
-  padding-top: 0.22em;
 }
 ol.plain strong { color: var(--ink); font-weight: 600; }
 
@@ -565,7 +568,7 @@ ol.plain strong { color: var(--ink); font-weight: 600; }
 
 /* -------------------------------------------------------------- trust ---- */
 
-.tr { padding-block: clamp(52px, 7vw, 92px); }
+.tr { padding-block: clamp(48px, 5.5vw, 76px); }
 
 .tr h2 { max-width: 24ch; }
 
