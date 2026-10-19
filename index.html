@@ -39,6 +39,7 @@
     <nav class="nav__links" aria-label="Page sections">
       <a href="#how">How it works</a>
       <a href="#download">Download</a>
+      <a href="#first-launch">First launch</a>
     </nav>
     <a class="btn btn--ghost btn--sm" href="https://github.com/Parthivsurya/Gstorage">View source</a>
   </div>
@@ -152,6 +153,36 @@
       </div>
 
       <p class="dl__fine">Every link above opens the latest release on GitHub, where these files are attached. The version in each filename changes with each release. You will also need the Google accounts you want to pool; Gstore does not create accounts for you.</p>
+    </div>
+  </section>
+
+  <section class="fl" id="first-launch">
+    <div class="wrap">
+      <h2>First launch</h2>
+      <p class="fl__lede">Neither build is signed with a paid Apple or Microsoft developer certificate, so both systems will warn you the first time you open Gstore. The source is public instead, so anyone can read what goes into a build. Here is what you will see, and what to do about it.</p>
+
+      <div class="fl__cols">
+        <div class="fl__col">
+          <h3>macOS</h3>
+          <ol class="plain">
+            <li>Open the <code>.dmg</code> and drag Gstore into Applications.</li>
+            <li>Open it. macOS blocks the first launch and says it cannot check the app for malicious software.</li>
+            <li>Go to System Settings, then Privacy &amp; Security. Scroll to the notice about Gstore and click <strong>Open Anyway</strong>.</li>
+            <li>Gstore then asks for your login keychain password once, so it can store its encryption key there. Choose <strong>Always Allow</strong> and it stops asking.</li>
+          </ol>
+          <p class="aside">Recent macOS versions removed the old right-click, then Open shortcut. The Privacy &amp; Security panel is now the way through.</p>
+        </div>
+
+        <div class="fl__col">
+          <h3>Windows</h3>
+          <ol class="plain">
+            <li>Unzip the folder, then keep it in one piece.</li>
+            <li>Run <code>Gstore.exe</code> from inside that folder. It needs the files next to it, so it is not a single portable exe you can move on its own.</li>
+            <li>SmartScreen says "Windows protected your PC". Choose <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+          </ol>
+          <p class="aside">Put the unzipped folder somewhere permanent before you make a shortcut to it.</p>
+        </div>
+      </div>
     </div>
   </section>
 

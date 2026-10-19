@@ -463,6 +463,66 @@ code {
   .platforms { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 }
 
+/* -------------------------------------------------------- first launch ---- */
+
+.fl {
+  padding-block: clamp(52px, 7vw, 92px);
+  background: var(--bg-2);
+  border-block: 1px solid var(--line);
+}
+
+.fl__lede {
+  margin-top: 18px;
+  color: var(--ink-2);
+  max-width: 68ch;
+}
+
+.fl__cols {
+  margin-top: 38px;
+  display: grid;
+  gap: 34px;
+}
+
+.fl__col h3 { padding-bottom: 14px; border-bottom: 1px solid var(--line-2); }
+
+ol.plain {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: s;
+  display: grid;
+  gap: 13px;
+  max-width: 54ch;
+}
+ol.plain > li {
+  counter-increment: s;
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: 12px;
+  color: var(--ink-2);
+}
+ol.plain > li::before {
+  content: counter(s);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--ink-3);
+  padding-top: 0.22em;
+}
+ol.plain strong { color: var(--ink); font-weight: 600; }
+
+.aside {
+  margin-top: 18px;
+  padding-left: 14px;
+  border-left: 2px solid var(--accent-line);
+  color: var(--ink-3);
+  font-size: 0.875rem;
+  max-width: 52ch;
+}
+
+@media (min-width: 840px) {
+  .fl__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
+}
+
 /* ------------------------------------------------------------- footer ---- */
 
 .foot {
@@ -496,7 +556,7 @@ code {
 
 /* ---------------------------------------------------- scroll + motion ---- */
 
-#how, #download { scroll-margin-top: 78px; }
+#how, #download, #first-launch { scroll-margin-top: 78px; }
 
 @media (prefers-reduced-motion: reduce) {
   * {
