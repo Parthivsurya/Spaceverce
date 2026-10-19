@@ -40,6 +40,7 @@
       <a href="#how">How it works</a>
       <a href="#download">Download</a>
       <a href="#first-launch">First launch</a>
+      <a href="#privacy">Privacy</a>
     </nav>
     <a class="btn btn--ghost btn--sm" href="https://github.com/Parthivsurya/Gstorage">View source</a>
   </div>
@@ -181,6 +182,32 @@
             <li>SmartScreen says "Windows protected your PC". Choose <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
           </ol>
           <p class="aside">Put the unzipped folder somewhere permanent before you make a shortcut to it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tr" id="privacy">
+    <div class="wrap">
+      <h2>There is no server in the middle.</h2>
+      <p class="tr__lede">Gstore runs on your machine and talks to Google's APIs directly. File contents move between your device and Google, and nothing is sent to or stored by whoever wrote this app. There is no analytics, no telemetry and no third-party SDK in the build.</p>
+
+      <div class="facts">
+        <div class="fact">
+          <h3>Credentials are encrypted at rest</h3>
+          <p>Your Google tokens are encrypted with Fernet, and the master key is kept in your operating system keychain rather than on disk in plaintext. Gstore encrypts those credentials, not your file contents; files sit in your own Google accounts under Google's protections.</p>
+        </div>
+        <div class="fact">
+          <h3>A narrow Google permission by default</h3>
+          <p>Gstore asks for the <code>drive.file</code> scope, which only covers files Gstore itself put there. It is not asking to read the rest of your Drive. Browsing everything already in your accounts is an optional advanced mode that needs a broader permission you would have to grant on purpose.</p>
+        </div>
+        <div class="fact">
+          <h3>No account with us</h3>
+          <p>There is no sign-up, no email address, no license key and no update server to check in with. You link your own Google accounts, and a Google account is the only thing you need to bring.</p>
+        </div>
+        <div class="fact">
+          <h3>Open source</h3>
+          <p>The whole app is on GitHub. Read it before you trust it, build it yourself if you would rather not run someone else's binary, or fork it and change what you want.</p>
         </div>
       </div>
     </div>
