@@ -418,6 +418,24 @@ code {
   max-width: 44ch;
 }
 
+.detected {
+  display: none;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--accent);
+}
+
+.platforms[data-os="macos"] .platform--macos,
+.platforms[data-os="windows"] .platform--windows {
+  background: var(--accent-wash);
+  border-color: var(--accent-line);
+}
+.platforms[data-os="macos"] .platform--macos .detected,
+.platforms[data-os="windows"] .platform--windows .detected {
+  display: inline;
+}
 
 .assets {
   list-style: none;

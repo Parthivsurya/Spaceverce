@@ -119,9 +119,9 @@
       <h2>Download</h2>
       <p class="dl__meta">Version 0.0.2. This is early software, so expect rough edges. Runs on macOS 11 or later, or on 64-bit Windows.</p>
 
-      <div class="platforms">
+      <div class="platforms" id="platforms">
         <div class="platform platform--macos">
-          <h3>macOS</h3>
+          <h3>macOS <span class="detected">looks like your platform</span></h3>
           <p class="platform__note">The two Mac builds are not interchangeable. If you are not sure which chip you have, check the Apple menu, then About This Mac.</p>
           <ul class="assets">
             <li>
@@ -140,7 +140,7 @@
         </div>
 
         <div class="platform platform--windows">
-          <h3>Windows</h3>
+          <h3>Windows <span class="detected">looks like your platform</span></h3>
           <p class="platform__note">64-bit Windows 10 and 11. There is no 32-bit build, and no installer: you unzip it and run it.</p>
           <ul class="assets">
             <li>
@@ -226,6 +226,21 @@
     <p class="foot__fine">Not affiliated with Google. Google Drive is a trademark of Google LLC.</p>
   </div>
 </footer>
+
+<script>
+/* Progressive enhancement only: highlight the platform the visitor is probably on.
+   With JavaScript off, no attribute is set and every download stays visible. */
+(function () {
+  var box = document.getElementById('platforms');
+  if (!box) return;
+  var ua = navigator.userAgent || '';
+  var plat = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+  var hay = (plat + ' ' + ua).toLowerCase();
+  if (/iphone|ipad|ipod|android/.test(hay)) return;
+  if (hay.indexOf('win') > -1) box.setAttribute('data-os', 'windows');
+  else if (hay.indexOf('mac') > -1) box.setAttribute('data-os', 'macos');
+})();
+</script>
 
 </body>
 </html>
