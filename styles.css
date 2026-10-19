@@ -346,6 +346,39 @@ code {
   line-height: 1.5;
 }
 
+/* -------------------------------------------------------- how it works ---- */
+
+.how { padding-block: clamp(52px, 7vw, 92px); }
+
+.steps {
+  list-style: none;
+  margin: 34px 0 0;
+  padding: 26px 0 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 30px;
+}
+
+.step__n {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.step p {
+  margin-top: 8px;
+  color: var(--ink-2);
+  max-width: 42ch;
+}
+
+@media (min-width: 840px) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px;
+  }
+}
+
 /* ----------------------------------------------------------- downloads ---- */
 
 .dl { padding-block: clamp(52px, 7vw, 92px); }
@@ -463,7 +496,7 @@ code {
 
 /* ---------------------------------------------------- scroll + motion ---- */
 
-#download { scroll-margin-top: 78px; }
+#how, #download { scroll-margin-top: 78px; }
 
 @media (prefers-reduced-motion: reduce) {
   * {
