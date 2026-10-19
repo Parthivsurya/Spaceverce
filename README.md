@@ -56,15 +56,19 @@ There is no `vercel.json`, because nothing needs configuring. Pushing to
 
 ## When Gstore ships a new version
 
-Two things in `index.html` carry the version number, and both are plain text:
+Nothing on the page needs editing. The three download buttons point at
+`/releases/latest/download/<file>` with version-less filenames
+(`Gstore-macos-arm64.dmg`, `Gstore-macos-intel.dmg`,
+`Gstore-windows-x64.zip`), so they always resolve to the newest release
+as long as the release assets keep those names. Attach the assets under
+those exact filenames and the page follows along.
 
-1. The line under the Download heading ("Version 0.0.2...").
-2. The three asset filenames, for example `Gstore-0.0.2-arm64.dmg`.
-
-The links themselves point at `/releases/latest`, so they never need
-updating. The filenames are shown only so a visitor knows which asset to
-pick on the GitHub release page, and which of the two macOS builds matches
-their chip.
+The one piece of prose that goes stale is the line under the Download
+heading, which names the latest release ("The latest release is 0.0.2").
+It describes the release, not the file behind any button, so it can lag
+without breaking a link. The anchors deliberately carry no `download`
+attribute: it does nothing cross-origin, and GitHub already sends the
+right `Content-Disposition` header.
 
 ## Checks before deploying
 

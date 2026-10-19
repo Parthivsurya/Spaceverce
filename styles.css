@@ -483,12 +483,12 @@ code {
 }
 .asset:hover {
   border-color: var(--accent);
-  background: var(--surface);
+  color: var(--accent);
 }
-.asset__file {
-  font-family: var(--mono);
-  font-size: 0.875rem;
-  overflow-wrap: anywhere;
+.asset:active { transform: translateY(1px); }
+.asset__name {
+  font-weight: 580;
+  font-size: 0.9375rem;
 }
 .asset__hint { color: var(--ink-3); font-size: 0.8125rem; }
 
