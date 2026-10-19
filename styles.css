@@ -467,12 +467,13 @@ code {
   gap: 10px;
 }
 
+/* narrow screens stack the label over the file note, so every button is the
+   same height instead of one of them wrapping and the others not */
 .asset {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 4px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
   padding: 13px 15px;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -491,6 +492,15 @@ code {
   font-size: 0.9375rem;
 }
 .asset__hint { color: var(--ink-3); font-size: 0.8125rem; }
+
+@media (min-width: 560px) {
+  .asset {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 16px;
+  }
+}
 
 .dl__fine {
   margin-top: 22px;
