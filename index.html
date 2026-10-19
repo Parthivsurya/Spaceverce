@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gstore: pool your own Google accounts into one drive</title>
+<meta name="description" content="Gstore is a local desktop app that links your own Google accounts and presents their free storage as a single space. No backend, no telemetry.">
+<meta name="theme-color" content="#f6f7f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1319" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gstore">
+<meta property="og:title" content="Gstore: pool your own Google accounts into one drive">
+<meta property="og:description" content="A local desktop app that links your own Google accounts and presents their free storage as a single space. No backend, no telemetry.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav__in">
+    <span class="brand">
+      <svg class="mark" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="gmark" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2f7cf6"/>
+            <stop offset="1" stop-color="#1fb47a"/>
+          </linearGradient>
+        </defs>
+        <rect width="32" height="32" rx="8" fill="url(#gmark)"/>
+        <text x="16" y="16.5" text-anchor="middle" dominant-baseline="central"
+              font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif"
+              font-size="19" font-weight="700" fill="#ffffff">G</text>
+      </svg>
+      <span class="brand__name">Gstore</span>
+    </span>
+    <nav class="nav__links" aria-label="Page sections">
+      <a href="#download">Download</a>
+    </nav>
+    <a class="btn btn--ghost btn--sm" href="https://github.com/Parthivsurya/Gstorage">View source</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div class="hero__copy">
+        <h1>Pool your Google accounts into one drive.</h1>
+        <p class="lede">Gstore links the accounts you already own and presents their free space as a single store on your desktop.</p>
+        <p class="cta">
+          <a class="btn btn--primary" href="#download">Download</a>
+          <a class="btn btn--ghost" href="https://github.com/Parthivsurya/Gstorage">View source</a>
+        </p>
+      </div>
+
+      <figure class="pool">
+        <div class="pool__head">
+          <span class="pool__total"><span class="pool__num">45</span> GB</span>
+          <span class="pool__label">one combined space</span>
+        </div>
+        <ul class="pool__rows">
+          <li class="prow">
+            <span class="prow__name">personal</span>
+            <span class="prow__val">15 GB</span>
+            <span class="track"><span class="track__fill" style="width:33.3%"></span></span>
+          </li>
+          <li class="prow">
+            <span class="prow__name">college</span>
+            <span class="prow__val">15 GB</span>
+            <span class="track"><span class="track__fill" style="width:33.3%"></span></span>
+          </li>
+          <li class="prow">
+            <span class="prow__name">old backup</span>
+            <span class="prow__val">15 GB</span>
+            <span class="track"><span class="track__fill" style="width:33.3%"></span></span>
+          </li>
+          <li class="prow prow--sum">
+            <span class="prow__name">pooled by Gstore</span>
+            <span class="prow__val">45 GB</span>
+            <span class="track"><span class="track__fill" style="width:100%"></span></span>
+          </li>
+        </ul>
+        <figcaption class="pool__cap">Example: three of your own accounts on Google's free 15 GB tier. Gstore reads the real quota of each one.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="dl" id="download">
+    <div class="wrap">
+      <h2>Download</h2>
+      <p class="dl__meta">Version 0.0.2. This is early software, so expect rough edges. Runs on macOS 11 or later, or on 64-bit Windows.</p>
+
+      <div class="platforms">
+        <div class="platform platform--macos">
+          <h3>macOS</h3>
+          <p class="platform__note">The two Mac builds are not interchangeable. If you are not sure which chip you have, check the Apple menu, then About This Mac.</p>
+          <ul class="assets">
+            <li>
+              <a class="asset" href="https://github.com/Parthivsurya/Gstorage/releases/latest">
+                <span class="asset__file">Gstore-0.0.2-arm64.dmg</span>
+                <span class="asset__hint">Apple silicon: M1, M2, M3, M4</span>
+              </a>
+            </li>
+            <li>
+              <a class="asset" href="https://github.com/Parthivsurya/Gstorage/releases/latest">
+                <span class="asset__file">Gstore-0.0.2-x86_64.dmg</span>
+                <span class="asset__hint">Intel Macs</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="platform platform--windows">
+          <h3>Windows</h3>
+          <p class="platform__note">64-bit Windows 10 and 11. There is no 32-bit build, and no installer: you unzip it and run it.</p>
+          <ul class="assets">
+            <li>
+              <a class="asset" href="https://github.com/Parthivsurya/Gstorage/releases/latest">
+                <span class="asset__file">Gstore-0.0.2-windows-x64.zip</span>
+                <span class="asset__hint">64-bit Windows</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dl__fine">Every link above opens the latest release on GitHub, where these files are attached. The version in each filename changes with each release. You will also need the Google accounts you want to pool; Gstore does not create accounts for you.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p class="foot__about"><strong>Gstore</strong> is a local desktop app for pooling the Google storage you already have.</p>
+    <nav class="foot__links" aria-label="Project links">
+      <a href="https://github.com/Parthivsurya/Gstorage">View source</a>
+      <a href="https://github.com/Parthivsurya/Gstorage/releases/latest">Releases</a>
+      <a href="https://github.com/Parthivsurya/Gstorage/issues">Report an issue</a>
+    </nav>
+    <p class="foot__fine">Not affiliated with Google. Google Drive is a trademark of Google LLC.</p>
+  </div>
+</footer>
+
+</body>
+</html>
