@@ -1,7 +1,7 @@
 /* ==========================================================================
    Gstore landing page
-   One accent (signal blue). The blue-to-green gradient is reserved for the
-   brand mark only. Radius system: panels 12px, controls 9px, inline 5px.
+   One accent, pulled from the blue in the app icon. The blue to green
+   gradient belongs to the artwork and appears only on the pooled bar. Radius system: panels 12px, controls 9px, inline 5px.
    Light and dark are the same design with swapped tokens, never inverted
    section by section.
    ========================================================================== */
@@ -20,12 +20,18 @@
   --line:      #dde3e8;
   --line-2:    #c8d1d9;
 
-  --accent:      #0b5fd0;
+  --accent:      #0a66c9;
   --accent-ink:  #ffffff;
   --accent-wash: #e9f1fd;
   --accent-line: #b6d0f6;
   --accent-soft: #dbe7f9;
-  --accent-hover: #0a4fae;
+  --accent-hover: #084f9e;
+
+  /* sampled from the app icon: deep blue, cyan, green. Used for the pooled
+     bar only, so the accent above stays the single interface color. */
+  --grad-a: #0a6fe8;
+  --grad-m: #0bb8d8;
+  --grad-b: #2fc98f;
 
   --nav-bg: rgba(246, 247, 248, 0.88);
 
@@ -208,7 +214,8 @@ code {
 }
 
 .brand { display: inline-flex; align-items: center; gap: 9px; }
-.mark { display: block; border-radius: 6px; }
+/* the artwork carries its own corner radius and shading: no mask, no shadow */
+.mark { display: block; width: 26px; height: 26px; }
 .brand__name { font-weight: 640; letter-spacing: -0.015em; }
 
 .nav__links {
@@ -240,6 +247,17 @@ code {
 }
 
 .hero__copy { max-width: 36ch; }
+
+.hero__logo {
+  display: block;
+  width: 72px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 600px) {
+  .hero__logo { width: 96px; margin-bottom: 24px; }
+}
 
 .lede {
   margin-top: 18px;
@@ -338,6 +356,10 @@ code {
 .prow--sum .prow__name { color: var(--ink); font-weight: 560; }
 .prow--sum .prow__val { color: var(--ink); }
 .prow--sum .track { height: 10px; }
+/* the pooled bar carries the icon's gradient: the accounts above it combine */
+.prow--sum .track__fill {
+  background: linear-gradient(90deg, var(--grad-a), var(--grad-m) 52%, var(--grad-b));
+}
 
 .pool__cap {
   margin-top: 20px;

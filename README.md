@@ -12,11 +12,19 @@ free storage across your own Google accounts into one drive.
 | --- | --- |
 | `index.html` | The whole page. One file, including the small platform-detect script at the bottom. |
 | `styles.css` | Design tokens and layout. Light and dark come from `prefers-color-scheme`. |
-| `favicon.svg` | The Gstore mark: rounded square, blue to green gradient, white G. |
+| `brand/` | The official Gstore artwork: `logo-512.png` and `logo-256.png` for display, `apple-touch-icon.png` at 180px, `favicon-32.png` for the tab. |
 
 Plain static HTML and CSS. No framework, no build step, no npm dependencies,
-no external fonts, CDNs or trackers. The type is a system font stack, so
-nothing is fetched at runtime.
+no external fonts, CDNs or trackers. The type is a system font stack, so the
+only things the page fetches are its own stylesheet and the logo.
+
+The logo is used as supplied. It already carries its own corner radius,
+shading and halo, so do not mask it, add a border or put a drop shadow
+behind it, and do not display it above 512px, which is the largest size
+in the folder. The page shows it at 26px in the header and 96px in the
+hero, against the page background rather than on a flat white panel. The
+blue, cyan and green sampled from it live in `styles.css` as `--grad-a`,
+`--grad-m` and `--grad-b`.
 
 ## Run it locally
 
