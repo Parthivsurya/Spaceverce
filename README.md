@@ -16,7 +16,9 @@ free storage across your own Google accounts into one drive.
 
 Plain static HTML and CSS. No framework, no build step, no npm dependencies,
 no external fonts, CDNs or trackers. The type is a system font stack, so the
-only things the page fetches are its own stylesheet and the logo.
+only assets the page fetches are its own stylesheet and the logo. The one
+third-party request is the download counter calling GitHub's public releases
+API (see below); nothing about the visitor is sent with it.
 
 The logo is used as supplied. It already carries its own corner radius,
 shading and halo, so do not mask it, add a border or put a drop shadow
@@ -63,12 +65,35 @@ Nothing on the page needs editing. The three download buttons point at
 as long as the release assets keep those names. Attach the assets under
 those exact filenames and the page follows along.
 
-The one piece of prose that goes stale is the line under the Download
-heading, which names the latest release ("The latest release is 0.0.2").
-It describes the release, not the file behind any button, so it can lag
-without breaking a link. The anchors deliberately carry no `download`
-attribute: it does nothing cross-origin, and GitHub already sends the
-right `Content-Disposition` header.
+No prose names a version number any more, so nothing goes stale. The
+anchors deliberately carry no `download` attribute: it does nothing
+cross-origin, and GitHub already sends the right `Content-Disposition`
+header.
+
+## The download counter
+
+The line under the Download heading is GitHub's own figure, fetched at page
+load from `GET /repos/Parthivsurya/Gstorage/releases` and summed over the
+`download_count` of every asset of every release. So it is a running total
+across versions, it counts downloads rather than unique people, and it only
+moves when someone pulls a release asset — cloning the repo or building from
+source does not register.
+
+Three things to know:
+
+- It is purely additive. The element ships `hidden`, and the script reveals it
+  only after a successful response, so with JavaScript off, GitHub down, or
+  the rate limit hit, the page looks exactly as it did before.
+- The endpoint needs no key but allows 60 calls an hour per IP. Each visitor
+  spends their own budget, and the answer is cached in `localStorage` for an
+  hour, so a repeat visit makes no request at all. A stale cached number is
+  shown if a later fetch fails.
+- A zero total stays hidden, so the line does not appear before the first
+  release has any downloads.
+
+If you would rather the page make no third-party request at all, delete the
+second block in the `<script>` at the bottom of `index.html` along with the
+`p.dl__count` markup; the counter is self-contained.
 
 ## Checks before deploying
 

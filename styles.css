@@ -411,6 +411,25 @@ code {
   max-width: 58ch;
 }
 
+/* Filled in by the counter script; hidden until GitHub answers. */
+.dl__count {
+  margin-top: 18px;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+}
+.dl__count[hidden] { display: none; }
+
+.dl__count-num {
+  font-family: var(--mono);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+.dl__count-label { color: var(--ink-3); font-size: 0.875rem; }
+
 .platforms {
   margin-top: 34px;
   display: grid;
